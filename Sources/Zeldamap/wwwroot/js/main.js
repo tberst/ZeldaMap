@@ -56,9 +56,15 @@ var ZeldaMap = function () {
 
         var options = _storage.loadOptions();
         var url = '/images/color/{z}/{x}_{y}.png';
+
         if (options && options.indexOf("Color") < 0)
         {
+            $("#mapid").css("background-color", "white");
             url = '/images/bw/{z}/{x}_{y}.png'
+        }
+        else
+        {
+            $("#mapid").css("background-color", "black");
         }
         self.tileLayer = L.tileLayer(url, {
             attribution: '...'
@@ -135,10 +141,13 @@ var ZeldaMap = function () {
         if (isColor)
         {
             self.tileLayer.setUrl('/images/color/{z}/{x}_{y}.png');
+            $("#mapid").css("background-color", "black");
+
         }
         else
         {
             self.tileLayer.setUrl('/images/bw/{z}/{x}_{y}.png');
+            $("#mapid").css("background-color", "white");
         }
     }
     self.setGrouping = function (isGrouping) {
