@@ -1,0 +1,61 @@
+﻿
+<li><a><i class="fa fa-handshake-o fa-lg"></i> Welcome @User.Identity.Name !</a></li>
+
+<li data-toggle="collapse" data-target="#filters" class="collapsed active">
+    <a href="#" id="btnFilter"><i class="fa fa-filter fa-lg"></i> Filter <span class="arrow"></span></a>
+</li>
+<ul class="sub-menu collapse filtermenu" id="filters" data-bind="foreach: checkboxlist">
+    <li>
+        <input type="checkbox"  style="vertical-align:sub"  class="small"
+               data-bind="checkedValue: id, checked: $parent.selectedFilters"> <span data-bind="text : value"></span>
+    </li>
+
+</ul>
+
+<li data-toggle="collapse" data-target="#selectedPanel" class="collapsed active" id="selected">
+    <a href="#" id="btnSelectedMarker"><i class="fa fa-sellsy fa-lg"></i>Selected Marker <span class="arrow"></span></a>
+</li>
+<li>
+    <ul class="sub-menu collapse" id="selectedPanel">
+        <li id="liSelectedPanel" class="noCaret">
+            <div class="form-group" id="selectedMarker">
+                <dl style="padding:0px 5px 0px inherit; ">
+                    <dt>Name </dt>
+                    <dd><input type="text" class="form-control" data-bind="value: name" /></dd>
+                    <dt>Description</dt>
+                    <dd><textarea class="form-control" rows="3" data-bind="value: description"></textarea></dd>
+                    <dt><span>Done </span> <input type="checkbox" class="small " style="margin-left:50px" data-bind="checked: chkDone" /></dt>
+                    <dd></dd>
+
+                </dl>
+                <a class="btn btn-primary right" data-bind="click:btnSaveClicked, visible : isSaveEnabled">Save</a>
+            </div>
+        </li>
+
+    </ul>
+</li>
+
+<li data-toggle="collapse" data-target="#options" class="collapsed active" id="selected">
+    <a href="#" id="btnOption"><i class="fa fa-gears fa-lg"></i>Options<span class="arrow"></span></a>
+</li>
+<li>
+    <ul class="sub-menu collapse" id="options"  data-bind="foreach: optionlist">
+        <li id="liOptions">
+     
+            <input type="checkbox" data-bind="checkedValue: id, checked: $parent.selectedOptions" class="small" style="vertical-align:sub" > <span data-bind="text : value"></span>
+        </li>
+
+    </ul>
+</li>
+
+
+
+
+<li><a asp-area="" asp-controller="Account" asp-action="Logout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+
+
+
+
+
+
+

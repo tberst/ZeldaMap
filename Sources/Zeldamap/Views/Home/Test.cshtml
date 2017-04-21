@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    /*#mapid {
+        min-height: 100%;
+    }*/
+    html, body, .container /*, and all other map parent selectors*/ {
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+
+    #mapid {
+        width: auto;
+        height: 100%;
+    }
+</style>
+
+<link rel="stylesheet" href="~/css/icons.css" />
+<div class="circle circleMap" style="background-color: #ff422e; border-color: #ff422e"><span style="font-size: 16px;" class="icon-BotW_Guardian"></span></div>
+
+
+<div id="mapid"></div>
+@section Scripts
+{
+
+
+
+
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            var _globalCtx = _globalCtx = _globalCtx || {};
+            _globalCtx.isAuthenticated = true;
+        </script>
+    }
+
+
+
+}

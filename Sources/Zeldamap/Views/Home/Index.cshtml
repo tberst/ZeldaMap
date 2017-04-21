@@ -1,0 +1,68 @@
+﻿
+@using Microsoft.Extensions.Options;
+@using zeldamap.Code;
+@inject IOptions<ApplicationConfigurations> OptionsApplicationConfiguration
+
+
+@{
+    ViewData["Title"] = "Interactive map of Hyrule from Breath of the Wild ";
+    ViewData["Description"] = "An interactive map of Hyrule for Zelda Breath of the Wild with  : zoom in/out, markers for well known locations, the ability to place custom markers, progress tracker (done/not done)";
+}
+<style>
+    html, body, .container, .main-row, .body-content {
+        overflow: hidden;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+
+    #mapid {
+        width: auto;
+        height: 100vh;
+    }
+</style>
+
+<link rel="stylesheet" href="~/css/icons.css" />
+
+
+<div id="mapid"></div>
+@section Scripts
+{
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            var _globalCtx = _globalCtx = _globalCtx || {};
+            _globalCtx.isAuthenticated = true;
+        </script>
+    }
+
+
+    <script src="~/js/zelda.contextmenu.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+    <script src="~/js/zelda.iconHelper.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+    <script src="~/js/zelda.markercache.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+    <script src="~/js/main.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+    <script src="~/js/zelda.selectedMarker.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+    <script src="~/js/zelda.tour.js?v=@OptionsApplicationConfiguration.Value.CustomJsVersion" type="text/javascript"></script>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <script type="text/javascript">
+            _globalCtx.Tour().startRegisteredTour();
+        </script>
+
+    }
+    else
+    {
+        <script type="text/javascript">
+            _globalCtx.Tour().startAnonymousTour();
+        </script>
+
+    }
+
+
+    }

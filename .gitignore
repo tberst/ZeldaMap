@@ -250,3 +250,11 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/Resources/ZeldaMap.png
+/Resources/BotW-Map-FULL_BW.png
+/Resources/ZeldaMap.png
+/Sources/Zeldamap/appsettings.Development.json
+/Sources/Zeldamap/appsettings.Production.json
+/Resources
+/Resources/images/BW/1/0_0.png
+*.png
