@@ -1325,6 +1325,7 @@
     <Content Include="wwwroot\images\color\6\9_7.png" />
     <Content Include="wwwroot\images\color\6\9_8.png" />
     <Content Include="wwwroot\images\color\6\9_9.png" />
+    <Content Include="wwwroot\images\favicon.ico" />
     <Content Include="wwwroot\js\zelda.optionmenu.js">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
